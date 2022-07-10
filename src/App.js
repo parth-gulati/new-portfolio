@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "@mui/material/styles";
+import styled from "styled-components";
+import "./App.css";
+import Header from "./components/Header";
+import { theme } from "./components/theme";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Container className="App">
+      </Container>
+    </ThemeProvider>
   );
 }
+
+const Container = styled.div`
+  background-color: #00000010;
+  min-height: 100vh;
+`
 
 export default App;
