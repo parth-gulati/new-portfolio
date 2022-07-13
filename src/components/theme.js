@@ -15,11 +15,6 @@ export const theme = createTheme({
   typography: {
     fontFamily: "Roboto",
     fontSize: 12,
-    h1: {
-      // incase h1 needs to have a separate fontFamily
-      fontFamily: "Oxygen",
-      fontSize: 15,
-    },
     h6: {
       fontFamily: "Roboto",
       fontSize: 15,

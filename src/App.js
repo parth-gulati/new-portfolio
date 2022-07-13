@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import { theme } from "./components/theme";
 import Hero from "./components/Hero";
+import About from "./components/About";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Container className="App">
         <Hero />
+        <About />
       </Container>
     </ThemeProvider>
   );
@@ -19,10 +21,10 @@ function App() {
 const Container = styled.div`
   background-color: #00000010;
   min-height: 100vh;
-  @media (min-width: 601px){
+  @media (min-width: 601px) {
     padding-top: 63px;
   }
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     padding-top: 48px;
   }
 `;
