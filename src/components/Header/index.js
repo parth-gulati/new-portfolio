@@ -11,10 +11,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
-import { theme } from "./theme";
+import { theme } from "../theme";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About Me", "Service", "Portfolio", "Contact"];
+const navItems = ["Home", "About Me", "Service", "Portfolio", "Contact Me"];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -80,13 +80,19 @@ function DrawerAppBar(props) {
           >
             {navItems.map((item) => (
               <Button
+                variant={item === "Contact Me" ? "contained" : "text"}
                 onClick={() => {
                   setActive(item);
                 }}
                 key={item}
                 sx={{
                   margin: "0 20px",
-                  color: item === active ? "primary" : "#000",
+                  color:
+                    item === active
+                      ? "primary"
+                      : item === "Contact Me"
+                      ? "#fff"
+                      : "#000",
                   textTransform: "none",
                 }}
               >
