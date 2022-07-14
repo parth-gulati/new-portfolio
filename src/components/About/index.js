@@ -1,46 +1,26 @@
 import { Link, Typography, Grid } from "@mui/material";
 import styled from "styled-components";
 import Box from "./Box";
+import CodeIcon from "@mui/icons-material/Code";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 const About = () => {
-  const colors = [
-    "#9363c5",
-    "#3788c6",
-    "#f29f58",
-    "#ca40ad",
-    "#2e7bb9",
-    "#7bcee5",
-  ];
-  const skills = [
+  const content = [
     {
-      name: "Reactjs",
-      value: 95,
-      color: colors[0],
+      name: <SportsEsportsIcon/>,
+      link: "/images/gaming.gif",
+      color: "#9363c5",
     },
     {
-      name: "Axios",
-      value: 95,
-      color: colors[1],
+      name: <CodeIcon/>,
+      link: "/images/coding.gif",
+      color: "#3788c6",
     },
     {
-      name: "Nodejs",
-      value: 70,
-      color: colors[2],
-    },
-    {
-      name: "Java and Springboot",
-      value: 75,
-      color: colors[3],
-    },
-    {
-      name: "Vue.js",
-      value: 75,
-      color: colors[4],
-    },
-    {
-      name: "MongoDB",
-      value: 80,
-      color: colors[5],
+      name: <AutoStoriesIcon/>,
+      link: "/images/reading.gif",
+      color: "#ca40ad",
     },
   ];
 
@@ -51,45 +31,38 @@ const About = () => {
           #ABOUT
         </Typography>
       </Link>
-      <Typography variant="h3" style={{ margin: "15px 0px" }}>
+      <Typography
+        variant="h3"
+        style={{ margin: "25px 0px", fontWeight: "lighter" }}
+      >
         I specialize in <span style={{ color: "#0ca48b" }}>design</span> and{" "}
         <span style={{ color: "#0ca48b" }}>development</span>
       </Typography>
       <Typography
-        variant="body1"
-        sx={{ textAlign: "center", marginBottom: "30px", opacity: 0.7 }}
+        variant="body2"
+        style={{ margin: "0px 0px 10px", fontWeight: "normal", opacity: 0.7, fontSize: 12 }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Also, this pretty much sums up my life.
       </Typography>
+
       <Grid
         container
         alignItems="center"
         justifyContent="center"
-        columns={{ xs: 4, sm: 9, md: 12, lg: 24 }}
+        columns={{ xs: 4, md: 24 }}
+        sx={{ marginTop: "20px" }}
       >
-        {skills.map((item) => (
-          <InnerGrid align="center" xs={2} sm={3} md={2} lg={3}>
-            <Box
-              skillName={item.name}
-              skillValue={item.value}
-              color={item.color}
-            />
-          </InnerGrid>
+        {content.map((item) => (
+          <Grid xs={4} md={8} align="center">
+            <Box link={item.link} color={item.color}>
+              {item.name}
+            </Box>
+          </Grid>
         ))}
       </Grid>
     </Container>
   );
 };
-
-const InnerGrid = styled(Grid)`
-  margin-bottom: 20px;
-`;
 
 const Container = styled.div`
   padding: 20px 20px 20px 20px;
