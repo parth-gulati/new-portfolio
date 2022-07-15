@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import { theme } from "./components/theme";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Services from "./components/Services";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Container className="App">
         <Hero />
         <About />
+        <Services/>
       </Container>
     </ThemeProvider>
   );

@@ -28,7 +28,11 @@ const About = () => {
   return (
     <Container>
       <Link href="#" sx={{ textDecoration: "none" }}>
-        <Typography variant="body2" color="primary" sx={{ fontWeight: "bold" }}>
+        <Typography
+          variant="body2"
+          color="primary"
+          sx={{ fontWeight: "bold", marginBottom: "40px" }}
+        >
           #ABOUT
         </Typography>
       </Link>
@@ -55,9 +59,6 @@ const About = () => {
               )
               .pauseFor(2000)
               .deleteAll()
-              .callFunction(() => {
-                console.log("All strings were deleted");
-              })
               .start();
           }}
         />
@@ -68,7 +69,7 @@ const About = () => {
         alignItems="center"
         justifyContent="center"
         columns={{ xs: 4, md: 24 }}
-        sx={{ marginTop: "20px" }}
+        sx={{ marginTop: "20px", marginBottom: '40px' }}
       >
         {content.map((item) => (
           <Grid xs={4} md={8} align="center">
@@ -78,9 +79,40 @@ const About = () => {
           </Grid>
         ))}
       </Grid>
+
+      <Typography variant="body1" sx={{color: '#00000050', fontSize: 15}}>Check out some of my work:</Typography>
+      <StyledDiv>
+      <StyledImg onClick={()=>{window.location.href='https://www.hackerrank.com/gulati_parth98'}} src='/images/hackerrank.svg'/>
+      <StyledImg onClick={()=>{window.location.href='https://github.com/parth-gulati'}} src='/images/github.svg'/>
+      <StyledImg tooBig={0.85} onClick={()=>{window.location.href='https://www.linkedin.com/in/parth-gulati-733a15138/'}} src='/images/LinkedIn.svg'/>
+      <StyledImg onClick={()=>{window.location.href='https://pattypann.wordpress.com/'}} src='/images/wordpress.svg'/>
+      </StyledDiv>
     </Container>
   );
 };
+
+const StyledDiv = styled.div`
+  display: flex;
+  margin-top: 20px;
+  width: 300px;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: row;
+`
+
+const StyledImg = styled.img`
+  height: 50px;
+  transform: scale(${(props)=>props.tooBig || 1});
+  opacity: 0.85;
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(${(props)=>props.tooBig? 0.89 : 1.05});
+    opacity: 1;
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0ms;
+  }
+`
 
 const Container = styled.div`
   padding: 20px 20px 20px 20px;
@@ -89,7 +121,10 @@ const Container = styled.div`
   text-align: center;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  @media (min-width: 901px) {
+    height: 500px;
+  }
   @media (max-width: 600px) {
     margin-top: 40px;
   }
