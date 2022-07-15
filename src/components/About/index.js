@@ -4,23 +4,24 @@ import Box from "./Box";
 import CodeIcon from "@mui/icons-material/Code";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import Typewriter from "typewriter-effect";
 
 const About = () => {
   const content = [
     {
-      name: <SportsEsportsIcon/>,
-      link: "/images/gaming.gif",
-      color: "#9363c5",
-    },
-    {
-      name: <CodeIcon/>,
+      name: <CodeIcon />,
       link: "/images/coding.gif",
       color: "#3788c6",
     },
     {
-      name: <AutoStoriesIcon/>,
+      name: <SportsEsportsIcon />,
+      link: "/images/gaming.gif",
+      color: "#9363c5",
+    },
+    {
+      name: <AutoStoriesIcon />,
       link: "/images/reading.gif",
-      color: "#ca40ad",
+      color: "#0ca48b",
     },
   ];
 
@@ -35,14 +36,31 @@ const About = () => {
         variant="h3"
         style={{ margin: "25px 0px", fontWeight: "lighter" }}
       >
-        I specialize in <span style={{ color: "#0ca48b" }}>design</span> and{" "}
-        <span style={{ color: "#0ca48b" }}>development</span>
-      </Typography>
-      <Typography
-        variant="body2"
-        style={{ margin: "0px 0px 10px", fontWeight: "normal", opacity: 0.7, fontSize: 12 }}
-      >
-        Also, this pretty much sums up my life.
+        <Typewriter
+          options={{ loop: true }}
+          onInit={(typewriter) => {
+            typewriter
+              .typeString(
+                "I am a <span style='color: #3788c6;'>developer.</span>"
+              )
+              .pauseFor(2000)
+              .deleteChars("Developer.".length)
+              .pauseFor(500)
+              .typeString('<span style="color: #9363c5;">gamer.</span>')
+              .pauseFor(2000)
+              .deleteChars("gamer.".length)
+              .pauseFor(500)
+              .typeString(
+                '<span style="color: #0ca48b;">science</span> <span style="color: #00a6cb;">enthusiast.</span>'
+              )
+              .pauseFor(2000)
+              .deleteAll()
+              .callFunction(() => {
+                console.log("All strings were deleted");
+              })
+              .start();
+          }}
+        />
       </Typography>
 
       <Grid
